@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app-2
+  labels:
+    app: python-app-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app-2
+  template:
+    metadata:
+      labels:
+        app: python-app-2
+    spec:
+      containers:
+        - name: python-app-2
+          image: giorgiodg/python-app-2:v2
+          ports:
+            - containerPort: 5000
